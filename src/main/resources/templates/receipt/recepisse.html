@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TT Application</title>
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+<!--  &lt;!&ndash; Template Main CSS File &ndash;&gt;-->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/receipt.css" rel="stylesheet">
+</head>
+<body>
+<!--<div id="header">-->
+<!--  <div th:replace="/layouts/header :: header"> </div>-->
+<!--</div>-->
+
+<main id="" >
+<div class="receipt-content" th:object="${receipt}">
+  <div class="" style="width: 100%; background:none;">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="invoice-wrapper">
+          <img src="assets/img/logo.jpg" width="200px" alt="Profile"> <br>
+          <div class="intro" >
+            <br>
+            <p style="font-weigh:bold;"> <strong>TT APPLICATION</strong></p>
+          </div>
+          <div class="payment-info">
+            <div class="row">
+              <div class="col-sm-6">
+                TT REF : <span style="color:black;" th:text="*{receiptCode}"></span> <br>
+                Date : <span style="color:black;" th:text="*{receiptDate}"></span> <br>
+              </div>
+          </div>
+
+          <div class="payment-info">
+            <div class="row">
+              <div class="col-sm-12">
+                Sender reference :
+                <br>
+                &ensp; Sender name : <span style="color:black;" th:text="*{society.societyName}"></span> <br>
+                &ensp; Sender address : <span style="color:black;" th:text="*{society.societyAdress}"></span> <br>
+                <br>
+                Beneficiary reference :
+                <br>
+                &ensp; Beneficiary Name : <span style="color:black;" th:text="*{beneficiary.beneficiaryName}"></span> <br>
+                &ensp; Beneficiary address : <span style="color:black;" th:text="*{beneficiary.beneficiaryAdress}"></span> <br>
+                &ensp; Beneficiary bank : <span style="color:black;" th:text="*{beneficiaryBank}"></span> <br>
+                &ensp; IBAN account : <span style="color:black;" th:text="*{beneficiaryAccount}"></span> <br>
+                &ensp; SWIFT : <span style="color:black;" th:text="*{swift_code}"></span> <br>
+
+                <br>
+                Amount : <span style="color:black;" th:text="*{amount}"></span> <br>
+                <br>
+                Currency : <span style="color:black;" th:text="*{currency}"></span> <br>
+                <br>
+                Value Date : <span style="color:black;" th:text="*{valueDate}"></span> <br>
+                <br>
+                Payment reference : <span style="color:black;" th:text="*{motifTransaction}"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="line-items">
+            <div class="print" id="print" onclick="imprimer_page()">
+              <a href="#">
+                <i class="fa fa-print"></i>
+                Imprimer le TT
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<style  media="print">
+        #watermark {
+            display: none;
+        }
+        #print{
+        display:none;
+        }
+        #header{
+        display: none;
+        }
+        #main{
+          background-color: white;
+          margin-top : -60px;
+        }
+    </style>
+
+    <script>
+        function imprimer_page() {
+            window.print();
+        }
+    </script>
+
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.umd.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.min.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
